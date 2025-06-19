@@ -20,19 +20,8 @@ public class AccountService {
         this.accountDAO = accountDAO;
     }
 
-
-    /**
-     * Uses accountDAO to login user
-     * 
-     * @param account
-     * @return
-     */
     public Account loginAccount(Account account) {
         return accountDAO.loginAccount(account);
-    }
-
-    public String getAccount(Account account) {
-        return accountDAO.getAccount(account);
     }
 
     public Account registerAccount(Account account) {

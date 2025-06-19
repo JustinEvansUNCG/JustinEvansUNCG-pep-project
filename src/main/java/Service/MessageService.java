@@ -31,20 +31,20 @@ public class MessageService {
         return messageDAO.getAllMessages();
     }
 
-    public Message getMessage(Message message) {
-        return messageDAO.getMessage(message);
+    public Message getMessage(int messageId) {
+        return messageDAO.getMessage(messageId);
     }
 
-    public Message deleteMessage(Message message) {
-        return messageDAO.deleteMessage(message);
+    public Message deleteMessage(int messageId) {
+        return messageDAO.deleteMessage(messageId);
     }
 
-    public Message updateMessage(Message message) {
-        return messageDAO.updateMessage(message);
+    public Message updateMessage(String messageText, int messageId) {
+        return messageDAO.updateMessage(messageText, messageId);
     }
 
-    public List<Message> getMessagesByUser(Account account) {
-        return messageDAO.getMessagesByUser(account);
+    public List<Message> getMessagesByUser(int accountId) {
+        return messageDAO.getMessagesByUser(accountId);
     }
 
 

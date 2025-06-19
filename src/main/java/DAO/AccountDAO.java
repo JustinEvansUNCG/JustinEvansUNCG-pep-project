@@ -6,12 +6,19 @@ import Util.ConnectionUtil;
 import java.sql.*;
 
 
-
+/**
+ * 
+ * Account DAO class
+ * 
+ * 
+ */
 public class AccountDAO {
     /**
-     * Todo: Add login functionality
      * 
+     * Allows a user to login
      * 
+     * @param user
+     * @return
      */
 
      public Account loginAccount(Account user) {
@@ -33,10 +40,6 @@ public class AccountDAO {
                 return account;
             }
             
-
-
-
-
         } catch(SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -45,37 +48,13 @@ public class AccountDAO {
      }
 
 
-
-     public String getAccount(Account user) {
-
-        Connection connection = ConnectionUtil.getConnection();
-
-        try {
-
-            String sql = "SELECT account_id FROM Account WHERE username=?;";
-            PreparedStatement ps = connection.prepareStatement(sql);
-
-            ps.setString(1, user.getUsername());
-
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()) {
-                String username = rs.getString("username");
-
-                return username;
-            }
-            
-
-
-
-
-        } catch(SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return null;
-     }
-
-
+     /**
+      * 
+      * Registers an account if account entered is unique
+      * 
+      * @param user
+      * @return
+      */
      public Account registerAccount(Account user) {
 
         Connection connection = ConnectionUtil.getConnection();
@@ -99,12 +78,6 @@ public class AccountDAO {
                 int account_id = (int) pkResultSet.getLong(1);
                 return new Account(account_id, user.getUsername(), user.getPassword());
             }
-
-            
-            
-
-
-
 
         } catch(SQLException e) {
             System.out.println(e.getMessage());
